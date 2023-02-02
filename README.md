@@ -11,9 +11,9 @@ This app is designed to be the the starter app, easily modifiable to add more fe
 It shows some basics of ReactNative development, and demonstrate my way of doing it.
 
 ## Features
- - [] A list of users
- - [] A search of users
- - [] An user detail screen, with some more data about the user
+ - [ ] A list of users
+ - [ ] A search of users
+ - [ ] An user detail screen, with some more data about the user
  
 ## Notes on project development
 ### Some context
