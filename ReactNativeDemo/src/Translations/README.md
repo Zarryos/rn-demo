@@ -1,0 +1,1 @@
+## /Translations list the available translations of the app, per language

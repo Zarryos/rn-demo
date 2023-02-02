@@ -1,0 +1,1 @@
+## /Stores list the stores used by the app

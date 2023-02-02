@@ -1,0 +1,1 @@
+## /Types is referencing all the types used within the app
