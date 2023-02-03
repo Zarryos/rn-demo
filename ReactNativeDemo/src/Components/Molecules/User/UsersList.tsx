@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {FlatList} from 'react-native';
 import User from '../../../Types/User/User';
@@ -13,11 +14,20 @@ const UsersList = (props: {
   refreshing: boolean;
   onRefresh: () => void;
 }) => {
+  const navigation = useNavigation();
+
   /**
    * Render an User row
    */
   const renderUserRow = (user: User) => (
-    <UserRow user={user} onPress={userId => console.debug('Press:', userId)} />
+    <UserRow
+      user={user}
+      onPress={userId =>
+        navigation.navigate('UserDetails', {
+          userId,
+        })
+      }
+    />
   );
 
   // TODO: Usage of error to display a placeholder, a toast or any other design choice
