@@ -16,7 +16,9 @@ const UsersList = (props: {
   /**
    * Render an User row
    */
-  const renderUserRow = (user: User) => <UserRow user={user} />;
+  const renderUserRow = (user: User) => (
+    <UserRow user={user} onPress={userId => console.debug('Press:', userId)} />
+  );
 
   // TODO: Usage of error to display a placeholder, a toast or any other design choice
   return (

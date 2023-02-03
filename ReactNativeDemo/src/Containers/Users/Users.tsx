@@ -1,5 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {View} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {useSelector} from 'react-redux';
 import UsersList from '../../Components/Molecules/User/UsersList';
 import {refreshAllUsers} from '../../Services/Api/users';
@@ -37,8 +37,7 @@ const Users = () => {
   }, [refreshData]);
 
   return (
-    <View>
-      {/* TODO: Navigation bar */}
+    <SafeAreaView>
       {/* TODO: Search bar */}
       <UsersList
         users={users}
@@ -46,7 +45,7 @@ const Users = () => {
         refreshing={isRefreshingUsers}
         onRefresh={refreshData}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
