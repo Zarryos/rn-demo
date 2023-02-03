@@ -13,7 +13,7 @@ It shows some basics of ReactNative development, and demonstrate my way of doing
 ## Features
  - [x] A list of users, with a pull to refresh
  - [ ] A search of users
- - [ ] An user detail screen, with some more data about the user
+ - [x] An user detail screen, with some more data about the user
  
 ## Notes on project development
 ### Some context
