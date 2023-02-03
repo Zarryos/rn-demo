@@ -1,32 +1,37 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback, useEffect, useMemo} from 'react';
 import {SafeAreaView} from 'react-native';
 import {useSelector} from 'react-redux';
-import UsersList from '../../Components/Molecules/User/UsersList';
-import {refreshAllUsers} from '../../Services/Api/users';
+import UserCard from '../../Components/Atoms/User/UserCard';
+import {refreshAnUser} from '../../Services/Api/users';
 import {State} from '../../Stores/Redux/reducers';
-import users from '../../Stores/Redux/reducers/users';
 import User from '../../Types/User/User';
 
 /**
  * @returns An user details
  */
-const UserDetails = (props: {id: Number}) => {
+const UserDetails = ({route}) => {
+  /// Memoized User Id from the navigation
+  const userId = useMemo(() => route.params.userId, [route.params.userId]);
+
   /**
-   * The stored list of users
+   * The stored user data
    */
   const user = useSelector((state: State) =>
-    (state.users?.list ?? []).find((u: User) => u.id === props.id),
+    (state.users?.list ?? []).find((u: User) => u.id === userId),
   );
 
   /**
-   * Force refresh the list data
+   * Force refresh the user data
    */
   const refreshUserData = useCallback(async () => {
-    const error: String | void = await refreshAnUser(props.id);
-  }, [props.id]);
+    const error: String | void = await refreshAnUser(userId);
+    if (error) {
+      // TODO: Error placeholder UI, state, toast... design choice!
+    }
+  }, [userId]);
 
   /**
-   * Trigger a refreshAllUsers when the component mount
+   * Trigger a refreshAnUser when the component mount, to get the latest data
    */
   useEffect(() => {
     refreshUserData();
@@ -34,7 +39,7 @@ const UserDetails = (props: {id: Number}) => {
 
   return (
     <SafeAreaView>
-      <UserCard userId={props.id} />
+      <UserCard user={user} />
     </SafeAreaView>
   );
 };
