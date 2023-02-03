@@ -1,13 +1,21 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import User from '../../../Types/User/User';
 
 const UserRow = (props: {user: User}) => {
   return (
-    <View>
-      <Text>{props.user.id.toString()}</Text>
+    <View style={styles.userRow}>
+      <Text>{props.user.name}</Text>
+      <Text>{props.user.username}</Text>
+      <Text>{props.user.email}</Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  userRow: {
+    margin: 16,
+  },
+});
 
 export default UserRow;

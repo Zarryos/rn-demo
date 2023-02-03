@@ -15,7 +15,11 @@ const UsersList = (props: {users: [User]; error: String | undefined}) => {
 
   // TODO: Usage of error to display a placeholder, a toast or any other design choice
   return (
-    <FlatList data={props.users} renderItem={({item}) => renderUserRow(item)} />
+    <FlatList
+      data={props.users}
+      renderItem={({item}) => renderUserRow(item)}
+      showsVerticalScrollIndicator={false}
+    />
   );
 };
 
