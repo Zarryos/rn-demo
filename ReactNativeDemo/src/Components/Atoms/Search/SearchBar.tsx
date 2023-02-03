@@ -22,7 +22,14 @@ const SearchBar = (props: {onChange: (searchedText: String) => void}) => {
     props.onChange?.(value);
   };
 
-  return <TextInput onChange={onChange} style={styles.searchBar} />;
+  // TODO: i18n
+  return (
+    <TextInput
+      placeholder={'Seach someone name or username...'}
+      onChange={onChange}
+      style={styles.searchBar}
+    />
+  );
 };
 
 const styles = StyleSheet.create({
