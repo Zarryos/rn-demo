@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {SafeAreaView} from 'react-native';
 import {useSelector} from 'react-redux';
+import SearchBar from '../../Components/Atoms/Search/SearchBar';
 import UsersList from '../../Components/Molecules/User/UsersList';
 import {refreshAllUsers} from '../../Services/Api/users';
 import {State} from '../../Stores/Redux/reducers';
@@ -38,7 +39,7 @@ const Users = () => {
 
   return (
     <SafeAreaView>
-      {/* TODO: Search bar */}
+      <SearchBar onChange={text => console.debug('New text:', text)} />
       <UsersList
         users={users}
         error={refreshError}
