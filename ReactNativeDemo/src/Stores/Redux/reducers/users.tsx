@@ -2,12 +2,12 @@ import User from '../../../Types/User/User';
 import {RESET_USERS} from '../types';
 
 const initialstate = {
-  users: {},
+  list: [],
 };
 
 type Action = {
   type: string;
-  users?: [User];
+  users: [User];
 };
 
 export default (state: any = initialstate, action: Action) => {
@@ -17,7 +17,7 @@ export default (state: any = initialstate, action: Action) => {
 
       return {
         ...state,
-        users,
+        list: users,
       };
     default:
       return state;
