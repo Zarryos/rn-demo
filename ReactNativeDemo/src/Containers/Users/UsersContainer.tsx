@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {useSelector} from 'react-redux';
 import UsersList from '../../Components/Molecules/User/UsersList';
@@ -10,7 +10,9 @@ import {State} from '../../Stores/Redux/reducers';
  */
 const Users = () => {
   /// State of the refresh error, if any
-  const [refreshError, setRefreshError] = useState<String | undefined>();
+  const [refreshError, setRefreshError] = useState<String | void>();
+  /// State of the refresh error, if any
+  const [isRefreshingUsers, setIsRefreshingUsers] = useState<boolean>(false);
 
   /**
    * The stored list of users
@@ -18,23 +20,32 @@ const Users = () => {
   const users = useSelector((state: State) => state.users?.list ?? []);
 
   /**
+   * Force refresh the list data
+   */
+  const refreshData = useCallback(async () => {
+    setIsRefreshingUsers(true);
+    const error: String | void = await refreshAllUsers();
+    setRefreshError(error);
+    setIsRefreshingUsers(false);
+  }, []);
+
+  /**
    * Trigger a refreshAllUsers when the component mount
    */
   useEffect(() => {
-    async function fetchUsers() {
-      const error: String | undefined = await refreshAllUsers();
-      if (error) {
-        setRefreshError(error);
-      }
-    }
-    fetchUsers();
-  }, []);
+    refreshData();
+  }, [refreshData]);
 
   return (
     <View>
       {/* TODO: Navigation bar */}
       {/* TODO: Search bar */}
-      <UsersList users={users} error={refreshError} />
+      <UsersList
+        users={users}
+        error={refreshError}
+        refreshing={isRefreshingUsers}
+        onRefresh={refreshData}
+      />
     </View>
   );
 };

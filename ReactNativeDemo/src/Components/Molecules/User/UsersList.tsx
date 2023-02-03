@@ -7,7 +7,12 @@ import UserRow from '../../Atoms/User/UsersRow';
  * @param props A list of users to render
  * @returns A rendered FlatList of users
  */
-const UsersList = (props: {users: [User]; error: String | undefined}) => {
+const UsersList = (props: {
+  users: [User];
+  error: String | void;
+  refreshing: boolean;
+  onRefresh: () => void;
+}) => {
   /**
    * Render an User row
    */
@@ -19,6 +24,8 @@ const UsersList = (props: {users: [User]; error: String | undefined}) => {
       data={props.users}
       renderItem={({item}) => renderUserRow(item)}
       showsVerticalScrollIndicator={false}
+      refreshing={props.refreshing}
+      onRefresh={props.onRefresh}
     />
   );
 };
