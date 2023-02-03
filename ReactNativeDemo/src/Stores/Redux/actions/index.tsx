@@ -1,3 +1,3 @@
-import updateUserAction from './users';
+import resetUsers from './users';
 
-export {updateUserAction};
+export {resetUsers};
