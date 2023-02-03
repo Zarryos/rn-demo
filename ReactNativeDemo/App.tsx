@@ -10,6 +10,9 @@ import {Provider} from 'react-redux';
 import Users from './src/Containers/Users/UsersContainer';
 import store from './src/Stores/Redux/index';
 
+/**
+ * @returns The app wrapper
+ */
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 

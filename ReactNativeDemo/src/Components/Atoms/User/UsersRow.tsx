@@ -2,6 +2,10 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import User from '../../../Types/User/User';
 
+/**
+ * @param props The user to render
+ * @returns A rendered View with some of the user data
+ */
 const UserRow = (props: {user: User}) => {
   return (
     <View style={styles.userRow}>

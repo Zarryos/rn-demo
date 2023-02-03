@@ -4,7 +4,7 @@ import User from '../../../Types/User/User';
 import UserRow from '../../Atoms/User/UsersRow';
 
 /**
- * @param props A list of users
+ * @param props A list of users to render
  * @returns A rendered FlatList of users
  */
 const UsersList = (props: {users: [User]; error: String | undefined}) => {
