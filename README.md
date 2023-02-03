@@ -59,6 +59,7 @@ This basic app beign really light, the commits have been done directly on master
 ### Possible improvements
 #### Tests!
 Adding some tests would have been nice, unfortunatly lacking time on my side to demonstrate that
+
 I've used [Jest](https://kenjdavidson.com/writing/2020/11/02/react-native-typescript-jest) on a previous project
 
 *Let me know if that's a blocker for this technical test, I could add some later on!*
