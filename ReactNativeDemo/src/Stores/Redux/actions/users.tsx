@@ -1,10 +1,10 @@
 import User from '../../../Types/User/User';
-import {RESET_USERS} from '../types';
+import {RESET_USERS, UPDATE_USERS} from '../types';
 
 /**
  * Hard reset the users store with the specified array of Users
  *
- * @param newUsers Array of Users
+ * @param users Array of Users to reset the store with
  * @returns
  */
 const resetUsers = (users: [User]) => ({
@@ -12,6 +12,18 @@ const resetUsers = (users: [User]) => ({
   users,
 });
 
+/**
+ * Update the stored data of a specific user
+ *
+ * @param user The User to update
+ * @returns
+ */
+const updateUsers = (users: [User]) => ({
+  type: UPDATE_USERS,
+  users,
+});
+
 export default {
   resetUsers,
+  updateUsers,
 };

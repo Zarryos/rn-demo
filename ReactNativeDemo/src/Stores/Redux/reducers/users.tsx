@@ -1,5 +1,5 @@
 import User from '../../../Types/User/User';
-import {RESET_USERS} from '../types';
+import {RESET_USERS, UPDATE_USERS} from '../types';
 
 const initialstate = {
   list: [],
@@ -18,6 +18,21 @@ export default (state: any = initialstate, action: Action) => {
       return {
         ...state,
         list: users,
+      };
+    case UPDATE_USERS:
+      const usersToUpdate = action.users ?? [];
+
+      const updatedUsers = state.list.map((user: User) => {
+        usersToUpdate.forEach((userToUpdate: User) => {
+          if (userToUpdate.id === user.id) {
+            return usersToUpdate;
+          }
+        });
+        return user;
+      });
+      return {
+        ...state,
+        list: updatedUsers,
       };
     default:
       return state;
