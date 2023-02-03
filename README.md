@@ -13,6 +13,8 @@ It shows some basics of ReactNative development, and demonstrate my way of doing
  - [x] A search of users
  - [x] An user detail screen, with some more data about the user
 
+https://user-images.githubusercontent.com/15783243/216664650-ecbe04b5-d2b0-49c1-955e-fc0e99adc896.mp4
+
 ## How to run the app
 
 Start by cloning the repo:
@@ -20,7 +22,7 @@ Start by cloning the repo:
 git clone https://github.com/Zarryos/rn-demo.git
 ```
 
-Follow the (get started)[https://reactnative.dev/docs/environment-setup] from ReactNative, skip the init part.
+Follow the [get started](https://reactnative.dev/docs/environment-setup) from ReactNative, skip the init part.
 
 Once you installed all the tools and dependency needed, launch a simulator, run the app :
 
